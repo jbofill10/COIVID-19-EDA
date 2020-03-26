@@ -6,6 +6,7 @@ from tqdm import tqdm
 
 from EDA import task1_index as task1
 from EDA.other import others_index as others_index
+from EDA.task2_risk_factors import RiskFactors as rf
 
 
 def main():
@@ -43,8 +44,9 @@ def main():
     else:
         df = pd.read_pickle('Data/pickles/covid_pickle').drop('index', axis=1)
 
-    #task1.task_1(df)
-    others_index.run_others(df)
+    task1.task_1(df)
+    #others_index.run_others(df)
+    #rf.risk_factors(df)
 
 
 if __name__ == '__main__':

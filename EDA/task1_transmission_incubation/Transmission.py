@@ -55,8 +55,19 @@ def transmission(df):
         transmission_papers.to_pickle('Data/pickles/transmission_pickle')
     else:
 
+        transmission_techniques = ['aerosol', 'contact', 'surface', 'breathing']
+
         transmission_papers = pd.read_pickle('Data/pickles/transmission_pickle')
-        
+
+        transmission_medium_freq = list()
+
+        for x in tqdm(transmission_papers['body']):
+            for sent in x.split('. '):
+                if 'transmission' in sent:
+                    for type in transmission_techniques:
+                        if type in sent:
+                            transmission_medium_freq.append(type)
+
         transmission_papers.head()
         freq_list = list()
 
@@ -68,9 +79,20 @@ def transmission(df):
                 freq_list.append(i)
 
         findings_df = pd.DataFrame(freq_list, columns=['variation'])
+        transmission_mediums_df = pd.DataFrame(transmission_medium_freq, columns=['medium'])
+        print(transmission_mediums_df['medium'].value_counts())
+        colors = ['#51c4e9', '#4a47a3', '#ad62aa', '#eab9c9']
+        plt.pie(transmission_mediums_df['medium'].value_counts(),
+                labels=[i.capitalize() for i in transmission_mediums_df['medium'].value_counts().index],
+                autopct='%1.1f%%', startangle=90, shadow=True, textprops={'fontsize': 18}, colors=colors)
+
+        plt.title("Common Transmission Mediums Mentioned", fontsize=25)
+        plt.savefig('Charts/TransmissionMediums.png')
+        plt.show()
+
         test = findings_df['variation'].value_counts()
         test['test'] = range(0,7)
-
+'''
         plt.hist(freq_list, bins=5, histtype='bar',
                  ec='white', linewidth=1.2, color='#005082')
         plt.title('Word Frequency from NLP on COVID-19 Scientific Literature', fontsize=21)
@@ -83,7 +105,7 @@ def transmission(df):
                    fontsize=20, color='black')
         plt.savefig('Charts/TransmissionFreq')
         plt.show()
-
+'''
 
 def build_transmission_pattern(keyword):
     return [[{'LEMMA': keyword.lower()}]]
