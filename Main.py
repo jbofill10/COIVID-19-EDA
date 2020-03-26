@@ -24,6 +24,7 @@ def main():
             full_body = ''
             with open(path, 'r') as file:
                 data = json.load(file)
+                paper_id=data['paper_id']
                 title = data['metadata']['title']
                 for x in data['abstract']:
                     abstract = x['text']
@@ -33,14 +34,13 @@ def main():
                     body = x['text']
                     full_body += body
 
-            temp = pd.DataFrame([[title, full_abstract, full_body]], columns=['title', 'abstract', 'body'])
+            temp = pd.DataFrame([[paper_id, title, full_abstract, full_body]], columns=['paper_id', 'title', 'abstract', 'body'])
             df = df.append(temp)
 
-        df = df.reset_index()
         print('Saving DataFrame so you don\'t need to create it again!')
         df.to_pickle('Data/pickles/covid_pickle')
     else:
-        df = pd.read_pickle('Data/pickles/covid_pickle')
+        df = pd.read_pickle('Data/pickles/covid_pickle').drop('index', axis=1)
 
     task1.task_1(df)
 

@@ -10,8 +10,10 @@ def incubation(df):
     # I'm thinking of looking for strings with incubation to start
     incubation_occurrences = list()
 
+    paper_titles = set()
+
     body_text = df['body'].values
-    counter = 0
+    index = 0
     for text in body_text:
         for sent in text.split('. '):
             if 'incubation' in sent:
@@ -23,12 +25,11 @@ def incubation(df):
                         for nums in house:
                             try:
                                 incubation_occurrences.append(int(nums))
+                                paper_titles.add((df.loc[index]['paper_id'].strip()))
+                                print(paper_titles)
                             except:
                                 continue
-
-    print(len(incubation_occurrences))
-    print(counter)
-
+        index+=1
     incubation_df = pd.DataFrame({'days': incubation_occurrences}, index=range(0, len(incubation_occurrences)))
     incubation_df = incubation_df.sort_index()
 
@@ -40,5 +41,5 @@ def incubation(df):
     plt.title('Distribution of Incubation Periods', fontsize=23, color='black')
     plt.xlim(1, 62)
     plt.rcParams['axes.grid'] = True
-    plt.savefig('Charts/IncubHist')
+    #plt.savefig('Charts/IncubHist')
     plt.show()
