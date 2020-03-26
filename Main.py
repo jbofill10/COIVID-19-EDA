@@ -5,6 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from EDA import task1_index as task1
+from EDA.other import others_index as others_index
 
 
 def main():
@@ -42,7 +43,8 @@ def main():
     else:
         df = pd.read_pickle('Data/pickles/covid_pickle').drop('index', axis=1)
 
-    task1.task_1(df)
+    #task1.task_1(df)
+    others_index.run_others(df)
 
 
 if __name__ == '__main__':
