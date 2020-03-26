@@ -84,7 +84,7 @@ def transmission(df):
         colors = ['#51c4e9', '#4a47a3', '#ad62aa', '#eab9c9']
         plt.pie(transmission_mediums_df['medium'].value_counts(),
                 labels=[i.capitalize() for i in transmission_mediums_df['medium'].value_counts().index],
-                autopct='%1.1f%%', startangle=90, shadow=True, textprops={'fontsize': 18}, colors=colors)
+                autopct='%1.1f%%', startangle=90, shadow=True, textprops={'fontsize': 15}, colors=colors)
 
         plt.title("Common Transmission Mediums Mentioned", fontsize=25)
         plt.savefig('Charts/TransmissionMediums.png')
