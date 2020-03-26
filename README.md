@@ -17,6 +17,6 @@ I plan to still tamper with the regular expression to get more accurate numbers.
 
 I used a NLP library called Spacy to create matching rules for all words that had the lemmatization of transmit and transmission.
 ![alt text](https://github.com/jbofill10/COVID-19-EDA/blob/master/Charts/TransmissionFreq.png)
- Overall, there were six variations of those words combined that were found across all documents. The actual goal on Kaggle was to return all the papers that could lead to some information on transmission, so I created a chart to see how these words were being used among the different papers to possibly help me narrow down more detailed matches. 
+ Overall, there were six variations of those words combined that were found across all documents. The actual goal on Kaggle was to return all the papers that could lead to some information on transmission, so I created a chart since to see how these words were being used among the different papers to possibly help me narrow down more detailed matches since there wasn't much to visualize about the data anyways. 
  
 Probably will not do this though since my computer is not strong enough to have more precise matches. 
