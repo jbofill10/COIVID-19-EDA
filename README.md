@@ -20,3 +20,8 @@ I used a NLP library called Spacy to create matching rules for all words that ha
  Overall, there were six variations of those words combined that were found across all documents. The actual goal on Kaggle was to return all the papers that could lead to some information on transmission, so I created a chart since to see how these words were being used among the different papers to possibly help me narrow down more detailed matches since there wasn't much to visualize about the data anyways. 
  
 Probably will not do this though since my computer is not strong enough to have more precise matches. 
+
+## What do we know about COVID-19 itself?
+I basically searched for common flu symptoms in all the documents to see if there were any matches.
+![alt text](https://github.com/jbofill10/COVID-19-EDA/blob/master/Charts/corona_symptoms.png)
+Seems pretty standard for what is already known about COVID-19. Although sore throat seems odly low, but I only searched 'sore throat' and could've expanded that search a bit more.
