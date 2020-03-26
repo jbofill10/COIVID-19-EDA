@@ -21,6 +21,14 @@ I used a NLP library called Spacy to create matching rules for all words that ha
  
 Probably will not do this though since my computer is not strong enough to have more precise matches. 
 
+I used some common terms used in scientific literature for ways to describe how viruses spread and searched for them in the dataframe of papers what contained forms of transmitting.
+
+These words were: Contact, Surface, Aerosol, and Breathing
+
+I don't believe that every instance of these words that my code finds will be in the context of transmission to be clear.
+
+![alt text](https://github.com/jbofill10/COVID-19-EDA/blob/master/Charts/TransmissionMediums.png)
+
 ## What do we know about COVID-19 itself?
 I basically searched for common flu symptoms in all the documents to see if there were any matches.
 ![alt text](https://github.com/jbofill10/COVID-19-EDA/blob/master/Charts/corona_symptoms.png)
